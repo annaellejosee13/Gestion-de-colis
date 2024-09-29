@@ -1,0 +1,55 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suivre colis</title>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="{% static 'colis/css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'colis/css/suivi_suivi.css' %}">
+</head>
+<body>
+
+    {% include 'colis/couche/sidebar.html' %}
+
+    <!-- CONTENT -->
+	<section id="content">
+
+		<!-- NAVBAR -->
+		{% include 'colis/couche/navbar.html' %}
+
+        <div class="card-container">
+
+            <div class="upper-container">
+                <div class="image-container">
+                    <img src="{% static 'colis/images/colis.png' %}" />
+                </div>
+            </div>
+    
+            <div class="lower-container">
+                <div style="text-align: left; font-size: 24px; ">
+                    {% for suiv in suivi %}
+                    <h6>ID_COLIS: {{ suiv.id }} </h6> <br>
+                    <h6>MODE TRANSPORT: {{ suiv.mode_transport }} </h6> <br>
+                    <h6>NOM: {{ suiv.nom }} </h6> <br>
+                    <h6>PAYS ORIGINE: {{ suiv.pays_origine }} </h6> <br>
+                    <h6>VILLE ORIGINE: {{ suiv.ville_origin }} </h6> <br>
+                    <h6>PAYS DESTINATION: {{ suiv.pays_destination }} </h6> <br>
+                    <h6>VILLE DESTINATION: {{ suiv.ville_destination }} </h6> <br>
+                </div> <br>
+                {% endfor %}
+                <!-- <div>
+                    <a href="#" class="btn">Fiche de paie</a>
+                </div> -->
+            </div>
+    
+        </div>
+
+
+    </section>
+    
+</body>
+</html>

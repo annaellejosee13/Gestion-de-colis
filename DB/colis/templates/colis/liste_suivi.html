@@ -1,0 +1,73 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste colis</title>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="{% static 'colis/css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'colis/css/suivre.css' %}">
+</head>
+<body>
+    
+
+{% include 'colis/couche/sidebar.html' %}
+
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		
+		{% include 'colis/couche/navbar.html' %}
+
+		<!-- MAIN -->
+		<main>
+			<div class="container">
+				<header>Liste son colis</header>
+		
+				<form action="#">
+					<div class="form first">
+
+                        <table>
+
+                            <thead>
+                             <tr>
+                                <th>NomDestinataire</th>
+                                <th>DateExpedition</th>
+                                <th>PaysOrigine</th>
+                                <th>VilleOrigine</th>
+                                <th>PaysDestination</th>
+                                <th>VilleDestination</th>
+                             </tr>
+                            </thead>
+                     
+                            <tbody>
+                                {% for exp in expo %}
+                                <tr>
+                                   <td><a href="{% url 'colis:suivi' exp.id  %}">{{ exp.nom }}</a></td>
+                                   <td>{{ exp.dateExp }}</td>
+                                   <td>{{ exp.pays_origine }}</td>
+                                   <td>{{ exp.ville_origin }}</td>
+                                   <td>{{ exp.pays_destination }}</td>
+                                   <td>{{ exp.ville_destination }}</td>
+                                </tr>
+                               {% endfor %}
+                            </tbody>
+                     
+                         </table>
+
+				</form>
+			</div>
+
+
+
+		</main>
+		<!-- MAIN -->
+	</section>
+
+
+</body>
+</html>

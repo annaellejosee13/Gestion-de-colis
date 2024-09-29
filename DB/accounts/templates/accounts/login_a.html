@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LOGIN</title>
+    <link rel="stylesheet" href="{% static 'accounts/css/login.css' %}" />
+    <script src="../custom-scripts.js" defer></script>
+  </head>
+  <body>
+    <section class="wrapper">
+
+      <div class="form signup">
+        <header>CONNEXION</header>
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input type="submit" id="loginBtn" value="Se connecter" />
+        </form>
+      </div>
+      <div class="form login">
+        <a href="{% url 'accounts:register' %}"><header>INSCRIPTION</header></a>
+        <form action="#">
+          <!-- <input type="text" placeholder="Nom:" required />
+          <input type="text" placeholder="Adresse email:" required />
+          <input type="password" placeholder="Mot de passe:" required />
+          
+          <input type="submit" value="S'inscrire" /> -->
+        </form>
+      </div>
+    </section>
+  </body>
+</html>

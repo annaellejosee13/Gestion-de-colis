@@ -1,0 +1,3 @@
+function printBordereau(){
+    window.print();
+}

@@ -1,0 +1,75 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="{% static 'colis/css/demander_expedition.css' %}">
+	<link rel="stylesheet" href="{% static 'colis/css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'colis/css/historique.css' %}">
+
+	<title>Dashboard</title>
+</head>
+<body>
+
+
+	{% include 'colis/couche/sidebar.html' %}
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+
+		{% include 'colis/couche/navbar.html' %}
+
+        <!-- MAIN -->
+		<main>
+			<div class="container">
+				<header>Historique</header>
+		
+				<form action="#">
+					<div class="form first">
+
+                        <table>
+
+                            <thead>
+                             <tr>
+                                 <th>Nom de l'expediteur</th>
+                                 <th>Date d'expédition</th>
+                                 <th>Longueur</th>
+                                 <th>Largeur</th>
+                                 <th>Hauteur</th>
+                                 <th>Poids</th>
+                                 <th>Quantité</th>
+                             </tr>
+                            </thead>
+                     
+                            <tbody>
+                                {% for dev in devis %}
+                                 <tr>
+                                    <td><a href="{% url 'colis:pdf_devis' dev.id  %}">{{ dev.nom }}</a></td>
+                                    <td>{{ dev.dateExp }}</td>
+                                    <td>{{ dev.longueur }}</td>
+                                    <td>{{ dev.largeur }}</td>
+                                    <td>{{ dev.hauteur }}</td>
+                                    <td>{{ dev.poids }}</td>
+                                    <td> {{ dev.quantite }} </td>
+                                 </tr>
+                                {% endfor %}
+                            </tbody>
+                     
+                         </table>
+
+				</form>
+			</div>
+
+
+
+		</main>
+		<!-- MAIN -->
+	</section>
+
+
+</body>
+</html>

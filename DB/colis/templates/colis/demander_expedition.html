@@ -1,0 +1,234 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="{% static 'colis/css/demander_expedition.css' %}">
+	
+
+	<title>Dashboard</title>
+</head>
+<body>
+
+
+	{% include 'colis/couche/sidebar.html' %}
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		{% include 'colis/couche/navbar.html' %}
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main>
+			
+
+			<div class="container">
+				<header>Formulaire d'expedition</header>
+		
+				<form method="post" action="{% url 'colis:expedition' %}">
+					{% csrf_token %}
+					<div class="form first">
+						<div class="details personal">
+							<span class="title">Details du destinataire</span>
+		
+							<div class="fields">
+								<div class="input-field">
+									<label for="nom">Nom:</label>
+									<input type="text" placeholder="Entrer un nom:" name="nom" required>
+								</div>
+								<div class="input-field">
+									<label for="prenom">Prenom:</label>
+									<input type="text" placeholder="Entrer un prenom:" name="prenom" required>
+								</div>
+		
+								<div class="input-field">
+									<label for="date_e">Date d'expedition</label>
+									<input type="date" placeholder="Entrer une date d'expedition" name="date_e" required>
+								</div>
+		
+								<div class="input-field">
+									<label for="email">Email</label>
+									<input type="text" placeholder="Entrer un email" name="email" required>
+								</div>
+		
+								<div class="input-field">
+									<label for="tel">Numero de telephone</label>
+									<input type="number" placeholder="Entrer un numero de telephone" name="tel" required>
+								</div>
+		
+								<div class="input-field">
+									<label for="pays_o">Pays d'origine</label>
+									<select name="pays_o" required>
+										<option disabled selected>Selectionner un pays</option>
+										<option>Cameroun</option>
+										<option>Canada</option>
+										<option>France</option>
+										<option>Nigeria</option>
+										<option>Afrique du sud</option>
+										
+									</select>
+								</div>
+
+								<div class="input-field">
+									<label for="ville_o">Ville</label>
+									<select name="ville_o" required>
+										<option disabled selected>Ville d'origine</option>
+										<option>Douala</option>
+										<option>Quebec</option>
+										<option>Paris</option>
+										<option>Lagos</option>
+										<option>Jonesbourg</option>
+										
+									</select>
+								</div>
+
+								<div class="input-field">
+									<label for="pays_dest">Pays de destination</label>
+									<select name="pays_dest" required>
+										<option disabled selected>Selectionner un pays</option>
+										<option>Cameroun</option>
+										<option>Canada</option>
+										<option>France</option>
+										<option>Nigeria</option>
+										<option>Afrique du sud</option>
+										
+									</select>
+								</div>
+								<div class="input-field">
+									<label for="ville_dest">Ville</label>
+									<select name="ville_dest" required>
+										<option disabled selected>ville de destination</option>
+										<option>Douala</option>
+										<option>Quebec</option>
+										<option>Paris</option>
+										<option>Lagos</option>
+										<option>Jonesbourg</option>
+										
+									</select>
+								</div>
+
+							</div>
+						</div>
+		
+						<div class="details ID">
+							<div class="fields">
+
+							</div>
+		
+							<button class="nextBtn">
+								<span class="btnText">Suivant</span>
+								<i class="uil uil-navigator"></i>
+							</button>
+						</div> 
+					</div>
+		
+					<div class="form second">
+						<div class="details family">
+
+							<span class="title">Qu'est ce que vous voulez expédiez ?</span>
+
+							<div class="gender-box">
+								<div class="gender-option">
+								  <div class="gender">
+									 <input type="radio" id="check-male" name="genre" value="Document" checked />
+									 <label for="genre">Document</label>
+								  </div>
+								  <div class="gender">
+									 <input type="radio" id="check-female" name="genre" value="Colis"/>
+									<label for="genre">Colis</label> 
+								  </div>
+								</div>
+							</div>
+		
+							<div class="fields">
+
+								<div class="input-field">
+									<input type="text" placeholder="Longueur" name="longueur" required>
+								</div> 
+		
+								<div class="input-field">
+									<input type="number" placeholder="Largeur" name="largeur" required>
+								</div>
+		
+								<div class="input-field">
+									<input type="number" placeholder="Hauteur" name="hauteur" required>
+								</div>
+		
+								<div class="input-field">
+									<input type="number" placeholder="Quantité" name="quantite" required>
+								</div>
+		
+								<div class="input-field">
+									<input type="number" placeholder="Poids" name="poids" required>
+								</div>
+		
+								<div class="input-field">
+									<input type="text" placeholder="Petite description" name="description" required>
+								</div>
+
+								<!-- <span class="title">Qu'est ce que vous voulez expédiez ?</span> -->
+								<div class="input-field">
+									<select name="mode_transport" required>
+										<option disabled selected>Mode de transport</option>
+										<option>Aérien</option>
+										<option>Maritime</option>
+										<option>Terrestre</option>
+										
+									</select>		
+								</div>
+
+
+								<div class="input-field">
+									<select name="devise" required>
+                                        <option disabled selected>Devise</option>
+                                        <option>XAF</option>
+                                        <option>EURO</option>
+                                        <option>DOLLARS</option>
+                                    </select>
+								</div> 
+								<div class="input-field">
+									<input type="number" placeholder="Entrer un prix" name="prix" required>
+
+								</div>
+							</div>
+		
+							<div class="buttons">
+								<div class="backBtn">
+									<i class="uil uil-navigator"></i>
+									<span class="btnText">Precedent</span>
+								</div>
+								
+								<!-- <a href="#">
+									<button class="sumbit" >
+										<span class="btnText">Confirmer</span>
+										<i class="uil uil-navigator"></i>
+									</button>
+								</a> -->
+								<button class="sumbit" >
+									<span class="btnText">Confirmer</span>
+									<i class="uil uil-navigator"></i>
+								</button>
+
+							</div>
+						</div>
+					</div>
+						<!-- </div> end div  details fam -->
+					<!-- </div>  end div second form -->
+				</form>
+			</div>
+
+
+
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+	
+    <script src="{% static 'colis/JS/demander_expedition.js' %}"></script>
+	<script src="{% static 'colis/JS/dashboard.js' %}"></script>
+</body>
+</html>

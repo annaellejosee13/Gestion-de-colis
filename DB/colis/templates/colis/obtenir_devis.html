@@ -1,0 +1,104 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="{% static 'colis/css/obtenir_devis.css' %}">
+	
+
+	<title>Dashboard</title>
+</head>
+<body>
+
+
+	{% include 'colis/couche/sidebar.html' %}
+
+	<!-- CONTENT -->
+	<section id="content">
+		
+		{% include 'colis/couche/navbar.html' %}
+
+		<!-- MAIN -->
+		<main>
+			
+
+			<div class="container">
+				<header>Formulaire de devis</header>
+		
+				<form method="post" action="{% url 'colis:devis' %}">
+					{% csrf_token %}
+					<div class="form first">
+						<div class="details personal">
+							<span class="title">Obtenir un devis</span>
+							<div class="fields">
+									<div class="input-field">
+										<label for="nom">Nom:</label>
+										<input type="text" placeholder="Entrer un nom:" name="nom" required>
+									</div>
+									<div class="input-field">
+										<input type="date" placeholder="Date d'expedition" name="dateExp" required>
+									</div>
+									<div class="input-field">
+										<input type="text" placeholder="Longueur(mètre)" name="longueur" required>
+									</div>
+									<div class="input-field">
+										<input type="number" placeholder="Largeur(mètre)" name="largeur" required>
+									</div>
+									<div class="input-field">
+										<input type="number" placeholder="Hauteur(mètre)" name="hauteur" required>
+									</div>
+									<div class="input-field">
+										<input type="number" placeholder="Quantité" name="quantite" required>
+									</div>
+									<div class="input-field">
+										<input type="number" placeholder="Poids(kg)" name="poids" required>
+									</div>
+									<div class="input-field">
+										<select name="devise" required>
+											<option disabled selected></option>
+											<option>XAF</option>
+											<option>EURO</option>
+											<option>DOLLARS</option>
+											
+										</select>
+									</div>	
+								<span class="title"> ℹ️ L'envoi peut etre soumise à des droits de douane et à des taxes, à la charge du destinataire</span>
+							</div>
+								<div class="buttons">
+									<div class="backBtn">
+										<i class="uil uil-navigator"></i>
+										<button type="submit" class="btnText" style="color: #fff;">Obtenir un devis maintenant</span>
+									</div>
+								</div>
+
+									<div class="input-field">
+										<!-- <input type="number" placeholder="Poids" required> -->
+									</div> 
+							</div>
+ 
+					</div>
+                        
+		
+						
+								
+		
+							
+						<!-- </div> end div  details fam -->
+					<!-- </div>  end div second form -->
+				</form>
+			</div>
+
+
+
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+	
+    <script src="JS/obtenir_devis.js"></script>
+	<script src="JS/dashboard.js"></script>
+</body>
+</html>

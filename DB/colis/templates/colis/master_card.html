@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire Master card</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/master_card.css">
+  </head>
+  
+  <body>
+    <div class="wrapper">
+      <div class="credit-card" id="card">
+        <div class="card-front">
+          <div class="branding">
+            <img src="images/chip.png" class="chip-img" />
+            <img src="images/master_card.png" class="visa-logo" />
+          </div>
+          <div class="card-number">
+            <div>
+              <span class="card-number-display">_</span>
+              <span class="card-number-display">_</span>
+              <span class="card-number-display">_</span>
+              <span class="card-number-display">_</span>
+            </div>
+            <div>
+              <span class="card-number-display">_</span>
+              <span class="card-number-display">_</span>
+              <span class="card-number-display">_</span>
+              <span class="card-number-display">_</span>
+            </div>
+            <div>
+              <span class="card-number-display">_</span>
+              <span class="card-number-display">_</span>
+              <span class="card-number-display">_</span>
+              <span class="card-number-display">_</span>
+            </div>
+            <div>
+              <span class="card-number-display">_</span>
+              <span class="card-number-display">_</span>
+              <span class="card-number-display">_</span>
+              <span class="card-number-display">_</span>
+            </div>
+          </div>
+          <div class="details">
+            <div>
+              <span>Titulaire de la carte</span>
+              <span id="card-holder-name">Votre numero ici</span>
+            </div>
+            <div>
+              <span>Expire</span>
+              <span id="validity">06/28</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-back">
+          <div class="black-strip"></div>
+          <div class="white-strip">
+            <span>CVV</span>
+            <div id="cvv-display"></div>
+          </div>
+          <img src="images/master_card.png" class="visa-logo" />
+        </div>
+      </div>
+      <form>
+        <label for="card-number">Numero de la carte:</label>
+        <input type="number" id="card-number" placeholder="1234123412341234" />
+
+        <label for="card-holder">Titulaire de la carte:</label>
+        <input type="text" id="card-name-input" placeholder="Votre nom" />
+
+        <div class="date-cvv">
+          <div>
+            <label for="validity">Expire le:</label>
+            <input type="date" id="validity-input" />
+          </div>
+          <div>
+            <label for="cvv">CVV:</label>
+            <input type="number" id="cvv" placeholder="***" />
+          </div>
+        </div>
+
+        <input type="submit" value="Confirmer" class="submit-btn">
+
+      </form>
+    </div>
+    <!-- Script -->
+    <script src="JS/visa_card.js"></script>
+  </body>
+</html>
